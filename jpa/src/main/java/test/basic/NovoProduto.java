@@ -9,7 +9,9 @@ public class NovoProduto {
 		
 		DAO<Produto> dao = new DAO<>(Produto.class);
 		
-		Produto prod = new Produto("Camisa", 100.00);
-		dao.abrirTransacao().incluir(prod).fecharTransacao().fechar();
+		Produto prod = new Produto("Meiao", 20.00);
+		dao.incluirAtomico(prod).fechar();
+		
+		System.out.println("Id: " + prod.getId());
 	}
 }
